@@ -2,6 +2,8 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import cytoscape from 'cytoscape';
+import "./style.css";
+
 
 const Cyto = () => {
   const [cy, setCy] = useState(null);
@@ -79,6 +81,10 @@ const Cyto = () => {
             'overlay-padding': 0,
             'overlay-color': 'transparent',
             'overlay-opacity': 0,
+            'target-arrow-shape': 'triangle',
+            'curve-style': 'bezier',
+            'target-arrow-color': '#ccc'
+            
           }
         }
       ],
@@ -243,15 +249,24 @@ const Cyto = () => {
   
 
   return (
-  <div>
-     <div>
-      <div id ="buttonBar">
-        <button onClick={addNodeAndEdge}>Add Node</button>
-        <button onClick={removeLastNodeAndEdge}>Remove Node</button> 
-        <div id='cy' style={{ width: '100%', height: '100vh' }} className="bg-blue-500" />
-  </div>
-  </div>
-  </div>    
+        <div>
+            <div className="title">
+                <p>Array</p>
+            </div>
+            <div className="description">
+                <p>
+                An array is a fundamental data structure that represents a collection of elements (values or variables), each identified by at least one array index or key. 
+                Arrays are used to store multiple values in a single variable, which allows for efficient access to elements based on their index. 
+                </p>
+            </div>
+            <div className="cyContainer">
+                <div id='cy' className="bg-blue-500" />
+            </div>
+            <div className="buttonBar">
+                <button onClick={addNodeAndEdge}>Add Node</button>
+                <button onClick={removeLastNodeAndEdge}>Pop Node</button>
+            </div>
+      </div>
   )
 };
 
