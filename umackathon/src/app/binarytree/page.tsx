@@ -14,13 +14,13 @@ const BinaryTree = () => {
             container: document.getElementById('cy'),
             elements: [
                 // nodes
-                { data: { id: 'item-1', label: '1' } },
-                { data: { id: 'head-2', label: '2' } },
+                { data: { id: 'head-1', label: '1' } },
+                { data: { id: 'item-2', label: '2' } },
                 { data: { id: 'item-3', label: '3' } },
 
                 // edges
-                { data: { id: 'edge-1', source: 'item-1', target: 'head-2' } },
-                { data: { id: 'edge-2', source: 'head-2', target: 'item-3' } },
+                { data: { id: 'edge-1', source: 'head-1', target: 'item-2' } },
+                { data: { id: 'edge-2', source: 'head-1', target: 'item-3' } },
                 // edges can be removed if not needed
             ],
             style: [
@@ -121,26 +121,35 @@ const BinaryTree = () => {
         const containerHeight = cyInstance.container().offsetHeight;
 
         // Define a recursive function to position nodes in a binary tree
+        let depth = 1;
         const positionNodes = (node, x, y) => {
-            if (node.isNode()) {
+            if (node != null) {
                 node.position({ x, y });
                 const children = node.outgoers().nodes();
                 const numChildren = children.length;
-
-                if (numChildren > 0) {
-                    const childSpacingX = containerWidth / (numChildren + 1);
-                    let childX = x - (numChildren - 1) * (childSpacingX / 2);
-
-                    for (const child of children) {
-                        positionNodes(child, childX, y + 100); // Adjust the 'y' value as needed
-                        childX += childSpacingX;
+                let childSpacingX = containerWidth / (numChildren + 1);
+                childSpacingX = childSpacingX;
+                let childX = x - (numChildren - 1) * (childSpacingX / 2);
+                depth += 1;
+                if (numChildren > 1) {
+                    let leftChild = children[0];
+                    let rightChild = children[1];
+                    let l = children[0].data("label");
+                    let r = children[1].data("label");
+                    if (l > r) {
+                        let temp = leftChild;
+                        leftChild = rightChild;
+                        rightChild = temp;
                     }
+                    positionNodes(leftChild, childX, y + 100);
+                    positionNodes(rightChild, childX + childSpacingX, y + 100);
+                } else {
+                    positionNodes(children[0], childX, y + 100);
                 }
             }
         };
         nodes.forEach((cur) => {
             let curId = String(cur.id());
-            console.log(curId);
             if (curId.includes("head")) {
                 //render tree for every head (there should be one but maybe more later?)
                 positionNodes(cur, containerWidth / 2, 0); // You can adjust the 'y' value as needed
@@ -160,7 +169,6 @@ const BinaryTree = () => {
         }
 
         cyInstance.center(nodes); // Center the nodes in the viewport
-
     };
 
 
@@ -170,14 +178,46 @@ const BinaryTree = () => {
         if (!cy) return;
 
         // Generate a new node ID based on current nodes count
-        const newNodeId = `item-${cy.nodes().length + 1}`;
-        const label = `${cy.nodes().length + 1}`;
+        const nodes = cy.nodes();
+        const newNodeId = `item-${nodes.length + 1}`;
+        const label = `${nodeValue}`;
         const nodesToAdd = [{ group: 'nodes', data: { id: newNodeId, label: label } }];
+
+        let head = null;
+        nodes.forEach((cur) => {
+            let curId = String(cur.id());
+            if (curId.includes("head")) {
+                head = cur;
+            }
+        });
+
+        let next = null;
+        while(head != null) {
+            let children = head.outgoers().nodes();
+            if(children.length <= 1) {
+                next = head;
+                head = null;
+            } else {
+                let l = children[0].data("label");
+                let r = children[1].data("label");
+                if (l > r) {
+                    let temp = l;
+                    l = r;
+                    r = temp;
+                }
+                if (label <= r) {
+                    head = children[0];
+                } else {
+                    head = children[1];
+                }
+            }
+        }
+
 
         // Only create an edge if there is at least one node present
         if (cy.nodes().length > 0) {
             const lastNodeId = `item-${cy.nodes().length}`;
-            nodesToAdd.push({ group: 'edges', data: { source: lastNodeId, target: newNodeId } });
+            nodesToAdd.push({ group: 'edges', data: { source: next.id(), target: newNodeId } });
         }
 
         // Add the new node, and potentially the edge
