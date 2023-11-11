@@ -8,8 +8,6 @@ import RuntimeBox from "@/app/runtime-box/runtimebox";
 const BinaryTree = () => {
     const [cy, setCy] = useState(null);
     const [nodeValue, setNodeValue] = useState<string>('');
-    let head = null;
-    let parents = [];
     useEffect(() => {
         // Initialize Cytoscape
         const newCy = cytoscape({
@@ -17,12 +15,12 @@ const BinaryTree = () => {
             elements: [
                 // nodes
                 { data: { id: 'item-1', label: '1' } },
-                { data: { id: 'item-2', label: '2' } },
+                { data: { id: 'head-2', label: '2' } },
                 { data: { id: 'item-3', label: '3' } },
 
                 // edges
-                { data: { id: 'edge-1', source: 'item-1', target: 'item-2' } },
-                { data: { id: 'edge-2', source: 'item-2', target: 'item-3' } },
+                { data: { id: 'edge-1', source: 'item-1', target: 'head-2' } },
+                { data: { id: 'edge-2', source: 'head-2', target: 'item-3' } },
                 // edges can be removed if not needed
             ],
             style: [
@@ -97,14 +95,6 @@ const BinaryTree = () => {
 
         newCy.nodes().ungrabify();
         setCy(newCy);
-        if (parents.length == 0) {
-            parents.push([newCy.nodes()[1], newCy.nodes()[2]])
-            parents.push([])
-            parents.push([])
-            head = newCy.nodes()[0];
-        }
-
-
         // Function to handle resize
         const handleResize = () => {
             newCy.resize();
@@ -126,60 +116,37 @@ const BinaryTree = () => {
 
     // Function to layout nodes in a horizontal line
     const applyTreeLayout = (cyInstance) => {
-        console.log("running 1")
         const nodes = cyInstance.nodes();
         const containerWidth = cyInstance.container().offsetWidth;
         const containerHeight = cyInstance.container().offsetHeight;
-        const spacingX = containerWidth / (nodes.length + 1); // Calculate spacing based on container and node count
-        const spacingY = containerHeight / (nodes.length + 1);
 
-        let temp = head;
-        let cur = head;
-        console.log(cur);
-        let children = [];
-        let nextChildren = [];
-        let layer = 1;
-        let layerLength = 0;
-        while (cur != null || children.length > 0 || nextChildren.length > 0) {
-            console.log("running");
-            if (cur != null) {
-                // We're at the very top of the tree
-                cur.position('x', containerWidth / 2);
-                cur.position('y', 0);
-                console.log(containerWidth/2, 0);
-                parents[cur.id().split("-")[1] - 1].forEach((child) => {
-                    children.push(child);
-                });
-                cur = null;
-                layer += 1;
+        // Define a recursive function to position nodes in a binary tree
+        const positionNodes = (node, x, y) => {
+            if (node.isNode()) {
+                node.position({ x, y });
+                const children = node.outgoers().nodes();
+                const numChildren = children.length;
+
+                if (numChildren > 0) {
+                    const childSpacingX = containerWidth / (numChildren + 1);
+                    let childX = x - (numChildren - 1) * (childSpacingX / 2);
+
+                    for (const child of children) {
+                        positionNodes(child, childX, y + 100); // Adjust the 'y' value as needed
+                        childX += childSpacingX;
+                    }
+                }
             }
-            // We're rendering a row
-            layerLength = children.length;
-            children.forEach((child => {
-                parents[child.id().split("-")[1] - 1].forEach((grandChild) => {
-                    nextChildren.push(grandChild);
-                });
-                child.position({
-                    'y': 300,
-                    'x': 0
-                });
-            }));
-            children = nextChildren;
-            nextChildren = [];
-            layer += 1;
-        }
-        head = temp;
-       /*
-        nodes.positions((node, index) => {
-            let x = containerHeight - (spacingX * (index + 1)); // Calculate x position with equal spacing
-            let y = containerHeight - (spacingY * (index + 1)); // Calculate y position with equal spacing
-            if (nodes.length === 1) {
-                x = containerHeight / 2; // Center the node if it's the only one
-                y = containerHeight / 2; // Center the node if it's the only one
+        };
+        nodes.forEach((cur) => {
+            let curId = String(cur.id());
+            console.log(curId);
+            if (curId.includes("head")) {
+                //render tree for every head (there should be one but maybe more later?)
+                positionNodes(cur, containerWidth / 2, 0); // You can adjust the 'y' value as needed
             }
-            return { x, y };
         });
-*/
+
         // Instead of fit, manually set zoom and pan
         if (nodes.length === 1) {
             // If only one node, center it without zooming in
@@ -193,7 +160,9 @@ const BinaryTree = () => {
         }
 
         cyInstance.center(nodes); // Center the nodes in the viewport
+
     };
+
 
 
 
