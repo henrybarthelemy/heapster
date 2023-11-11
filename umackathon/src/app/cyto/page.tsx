@@ -148,88 +148,71 @@ const Cyto = () => {
     cyInstance.center(nodes); // Center the nodes in the viewport
   };
   
-  
 
-  const addNodeAndEdge = () => {
+
+  const addNodeAndEdge = async () => {
     if (!cy) return;
   
-    // Generate a new node ID based on current nodes count
-    const newNodeId = `item-${cy.nodes().length + 1}`;
-    const label = `${cy.nodes().length + 1}`;
-    const nodesToAdd = [{ group: 'nodes', data: { id: newNodeId, label: label } }];
+    // Generate IDs for the new node and edge
+    const totalNodes = cy.nodes().length;
+    const newNodeId = `item-${totalNodes + 1}`;
+    const label = `${totalNodes + 1}`;
+    const newEdgeId = `edge-${totalNodes + 1}-${totalNodes + 2}`;
   
-    // Only create an edge if there is at least one node present
-    if (cy.nodes().length > 0) {
-      const lastNodeId = `item-${cy.nodes().length}`;
-      nodesToAdd.push({ group: 'edges', data: { source: lastNodeId, target: newNodeId } });
-    }
+    // Add the new node and edge with initial opacity as 0 (invisible)
+    cy.add([
+      { group: 'nodes', data: { id: newNodeId, label: label }, style: { 'opacity': 0 } },
+      totalNodes > 0 ? { group: 'edges', data: { id: newEdgeId, source: `item-${totalNodes}`, target: newNodeId }, style: { 'opacity': 0 } } : null
+    ].filter(Boolean));
   
-    // Add the new node, and potentially the edge
-    cy.add(nodesToAdd);
+    // Ensure new elements are ungrabbable
     cy.$(`#${newNodeId}`).ungrabify();
-    // make the node initially transparent
-    cy.$(`#${newNodeId}`).style('opacity', 0);
-    // make edge initially transparent
-    if (cy.nodes().length > 1) {
-      const edgeId = `edge-${cy.nodes().length - 1}`;
-      cy.$(`#${edgeId}`).style('opacity', 0);
+  
+    const flashDuration = 600;
+    const delay = 400;
+    const nodeFlashColor = 'red';
+    const lastNodeFlashColor = 'green'
+    const originalNodeColor = '#666'; // Assuming this is the original node color
+  
+    // Function to animate the node color
+
+    const flashNode = async (nodeId, flashColor, originalColor, flashDuration, delayDuration) => {
+      const node = cy.$(`#${nodeId}`);
+      await node.animation({
+        style: { 'background-color': flashColor },
+        duration: flashDuration / 2,
+        easing: 'ease-in-out'
+
+      }).play().promise();
+
+      await new Promise(resolve => setTimeout(resolve, delay));
+
+
+      await node.animation({
+        style: { 'background-color': originalColor },
+        duration: flashDuration / 2,
+        easing: 'ease-out' // Easing function for a smooth end
+      }).play().promise();
+    };  
+  
+    // Traverse and animate each node up to the new node
+    for (let i = 1; i <= totalNodes; i++) {
+      const currentNodeId = `item-${i}`;
+      await flashNode(currentNodeId, nodeFlashColor, originalNodeColor, flashDuration);
+    }
+  
+    // After the traversal animation, reveal the new node and edge
+    cy.$(`#${newNodeId}`).style('opacity', 1);
+    // turn the node green
+    cy.$(`#${newNodeId}`).style('background-color', lastNodeFlashColor);
+    if (totalNodes > 0) {
+      cy.$(`#${newEdgeId}`).style('opacity', 1);
     }
 
   
-
-  const animationDuration = 500;
-  const flashDuration = 300;
-  const nodeColor = 'red';
-  const edgeColor = 'purple';
-  const originalNodeColor = '#666'; // the original color of your nodes
-  const originalEdgeColor = '#ccc'; // the original color of your edges
-
-  // Function to animate the node color
-  const animateNodeColor = (nodeId, color, duration) => {
-    cy.$(`#${nodeId}`).animate({
-      style: { 'background-color': color },
-      duration: duration
-    });
-  };
-
-  // Function to animate the edge color
-  const animateEdgeColor = (edgeId, color, duration) => {
-    cy.$(`#${edgeId}`).animate({
-      style: { 'line-color': color },
-      duration: duration
-    });
-  };
-
-  // Perform animation
-  const performAnimation = async () => {
-    for (let i = 1; i < cy.nodes().length; i++) {
-      const currentNodeId = `item-${i}`;
-      const currentEdgeId = `edge-item-${i + 1}`;
-      
-      // Flash node color
-      animateNodeColor(currentNodeId, nodeColor, flashDuration);
-      await new Promise(resolve => setTimeout(resolve, flashDuration));
-      animateNodeColor(currentNodeId, originalNodeColor, flashDuration);
-
-      // Wait for node flash animation to complete before starting edge animation
-      await new Promise(resolve => setTimeout(resolve, flashDuration));
-
-      if (i < cy.nodes().length - 1) {
-        // Flash edge color
-        animateEdgeColor(currentEdgeId, edgeColor, flashDuration);
-        await new Promise(resolve => setTimeout(resolve, flashDuration));
-        animateEdgeColor(currentEdgeId, originalEdgeColor, flashDuration);
-      }
-    }
-  };
-
-  // Start animation
-    performAnimation();
-
-    // Re-apply layout
+    // Re-apply layout to place nodes correctly
     applyHorizontalLayout(cy);
   };
-  
 
   const removeLastNodeAndEdge = () => {
     if (!cy || cy.nodes().length < 1) return;
@@ -260,11 +243,15 @@ const Cyto = () => {
   
 
   return (
-    <div>
-    <button onClick={addNodeAndEdge}>Add Node</button>
-    <button onClick={removeLastNodeAndEdge}>Remove Node</button>
-    <div id='cy' style={{ width: '100%', height: '100vh' }} className="bg-blue-500" />
+  <div>
+     <div>
+      <div id ="buttonBar">
+        <button onClick={addNodeAndEdge}>Add Node</button>
+        <button onClick={removeLastNodeAndEdge}>Remove Node</button> 
+        <div id='cy' style={{ width: '100%', height: '100vh' }} className="bg-blue-500" />
   </div>
+  </div>
+  </div>    
   )
 };
 
