@@ -1,0 +1,42 @@
+.buttonBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    gap: 30px;
+}
+.cyContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#cy {
+    width: 50%;
+    height: 70vh;
+}
+.title {
+    text-align: center; /* Center the text horizontally */
+}
+
+.title p {
+    font-size: 50px; /* Adjust the font size as needed */
+}
+
+.description {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: auto;
+    width: 90%;
+}
+
+.fullParent {
+    display: flex;
+    width: 100%;
+}
+
+.halfChild {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+}
