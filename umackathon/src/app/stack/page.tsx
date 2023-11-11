@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import cytoscape from 'cytoscape';
 import "./style.css";
+import RuntimeBox from "@/app/runtime-box/runtimebox";
 
 const Stack = () => {
     const [cy, setCy] = useState(null);
@@ -240,15 +241,7 @@ const Stack = () => {
             <div className="title">
                 <p>Stack</p>
             </div>
-            <div className="description">
-                <p>
-                    A Stack is a linear data structure that follows the Last-In-First-Out (LIFO) principle.
-                    It is a collection of elements with two main operations: "push," which adds an element to the top of the stack,
-                    and "pop," which removes the top element from the stack. Additionally, a "peek" operation allows you to access
-                    the top element without removing it. Stacks are commonly used in various computing applications and are fundamental
-                    to many algorithms and data structures.
-                </p>
-            </div>
+
             <div className="cyContainer">
                 <div id='cy' className="bg-blue-500" />
             </div>
@@ -257,8 +250,31 @@ const Stack = () => {
                 <button onClick={popNode}>Pop Stack</button>
                 <button onClick={peek}>Peek Stack</button>
             </div>
+            <div className="fullParent">
+                <div className="halfChild">
+                    <div className="description">
+                        <p>
+                            A Stack is a linear data structure that follows the Last-In-First-Out (LIFO) principle.
+                            It is a collection of elements with two main operations: "push," which adds an element to the top of the stack,
+                            and "pop," which removes the top element from the stack. Additionally, a "peek" operation allows you to access
+                            the top element without removing it. Stacks are commonly used in various computing applications and are fundamental
+                            to many algorithms and data structures.
+                        </p>
+                    </div>
+                </div>
+                <div className="halfChild">
+                    <RuntimeBox stats={runtime}></RuntimeBox>
+                </div>
+            </div>
         </div>
     )
 };
 
+const runtime = {
+    "push to front" : "O(1)",
+    "push to back" : "O(n)",
+    "peek" : "O(1)",
+    "pop" : "O(1)",
+    "find element": "O(n)",
+}
 export default Stack;

@@ -1,9 +1,7 @@
-'use client'
-import {useRouter} from 'next/navigation';
-
-export default function App() {
-    const router = useRouter();
-    return (
-        <Stack/>
-    );
-};
+import Image from 'next/image'
+import Stack from "@/app/stack/page";
+export default function Home() {
+  return (
+    <Stack/>
+  )
+}

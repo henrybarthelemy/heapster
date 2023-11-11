@@ -29,3 +29,14 @@
     margin: auto;
     width: 90%;
 }
+
+.fullParent {
+    display: flex;
+    width: 100%;
+}
+
+.halfChild {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+}
