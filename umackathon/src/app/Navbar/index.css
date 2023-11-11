@@ -1,0 +1,93 @@
+.h-navbar {
+    border-bottom: solid 1px var(--secondary);
+}
+
+.h-navitem {
+    height: 1.5rem;
+}
+
+.h-navitemtext {
+    transition: all 0.2s ease-in-out;
+}
+
+.h-navitemtext:hover {
+    color: var(--secondary-alt);
+}
+
+.h-navitem .h-navitem {
+    /* display: none; */
+    opacity: 0.5;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+}
+
+.h-navitem:hover .h-navitem .h-navitem {
+    /* display: none; */
+    opacity: 0.5;
+    transition: all 0.2s ease-in-out;
+    z-index: 50;
+
+}
+
+.h-navitem .h-navitem:hover .h-navitem {
+    /* display: block; */
+    opacity: 1;
+    transition: all 0.2s ease-in-out;
+    z-index: 50;
+}
+
+.h-navitem:hover .h-navitem {
+    /* display: block; */
+    opacity: 1;
+    z-index: 50;
+}
+
+.h-navitem .h-navitemmenu {
+    display: none;
+}
+
+.h-navitem:hover .h-navitem .h-navitemmenu {
+    display: none;
+}
+
+.h-navitem:hover .h-navitem .h-navitemmenu .h-navitemmenu {
+    display: none;
+}
+
+.h-navitem .h-navitem .h-navitemmenu:hover .h-navitemmenu {
+    display: block;
+    z-index: 1000;
+}
+
+.h-navitem .h-navitem:hover .h-navitemmenu {
+    display: block;
+}
+
+/* .h-navitem .h-navitem .h-navitemmenu:hover {
+    z-index: 1000;
+} */
+
+.h-navitem:hover .h-navitemmenu {
+    display: block;
+}
+
+.h-navitemmenu {
+    position: relative;
+    display: none;
+    background-color: var(--accent);
+    box-sizing: border-box;
+    padding: 5px;
+    left: -5px;
+}
+
+.h-nav-dataStructures {
+    left: 5rem;
+}
+
+.h-nav-algorithms {
+    left: 16rem;
+}
+
+.h-nav-side {}
+
+.h-nav-down {}

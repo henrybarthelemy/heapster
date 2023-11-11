@@ -1,34 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 :root {
   --primary: rgb(var(--primary-rgb));
   --secondary: rgb(var(--secondary-rgb));
+  --secondary-alt: rgb(var(--secondary-alt-rgb));
   --tertiary: rgb(var(--tertiary-rgb));
-  --tertiary-alt: rgb(var(--tertiary-alt-rgb));
-  --primary-rgb: 255, 255, 255;
-  --secondary-rgb: 0, 0, 0;
-  --tertiary-rgb: 86, 86, 86;
-  --tertiary-alt-rgb: 110, 110, 110;
+  --primary-rgb: 34, 34, 34;
+  --secondary-rgb: 255, 255, 255;
+  --secondary-alt-rgb: 210, 210, 210;
+  --tertiary-rgb: 50, 50, 50;
 
   --primary-dark: rgb(var(--primary-dark-rgb));
   --secondary-dark: rgb(var(--secondary-dark-rgb));
+  --secondary-alt-dark: rgb(var(--secondary-alt-dark-rgb));
   --tertiary-dark: rgb(var(--tertiary-dark-rgb));
-  --tertiary-alt-dark: rgb(var(--tertiary-alt-dark-rgb));
-  --primary-dark-rgb: 20, 24, 27;
-  --secondary-dark-rgb: 233, 233, 233;
-  --tertiary-dark-rgb: 114, 114, 114;
-  --tertiary-alt-dark-rgb: 65, 65, 65;
+  --primary-dark-rgb: 34, 34, 34;
+  --secondary-dark-rgb: 255, 255, 255;
+  --secondary-alt-dark-rgb: 205, 205, 205;
+  --tertiary-dark-rgb: 50, 50, 50;
 
   --primary-light: rgb(var(--primary-light-rgb));
   --secondary-light: rgb(var(--secondary-light-rgb));
+  --secondary-alt-light: rgb(var(--secondary-alt-light-rgb));
   --tertiary-light: rgb(var(--tertiary-light-rgb));
-  --tertiary-alt-light: rgb(var(--tertiary-alt-light-rgb));
   --primary-light-rgb: 255, 255, 255;
   --secondary-light-rgb: 0, 0, 0;
+  --secondary-alt-light-rgb: 50, 50, 50;
   --tertiary-light-rgb: 86, 86, 86;
-  --tertiary-alt-light-rgb: 110, 110, 110;
 
   --accent: rgb(var(--accent-rgb));
   --accent-darker: rgb(var(--accent-darker-rgb));
@@ -38,22 +39,49 @@
   --danger-rgb: 255, 66, 66;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+html,
+body {
+  max-width: 100%;
+  background-color: var(--primary);
+  /* overflow-x: hidden; */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  margin: 0;
+  font-family: 'Red Hat Mono', monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+body::-webkit-scrollbar {
+  display: none;
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+}
+
+.h-primary {
+  color: var(--primary) !important;
+}
+
+.h-bg-primary {
+  background-color: var(--primary) !important;
+}
+
+.h-secondary {
+  color: var(--secondary) !important;
+}
+
+.h-bg-secondary {
+  background-color: var(--secondary) !important;
+}
+
+.h-tertiary {
+  color: var(--tertiary) !important;
 }
 
 .buttonBar {

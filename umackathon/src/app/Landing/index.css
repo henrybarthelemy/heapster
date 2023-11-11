@@ -1,0 +1,45 @@
+@import "../globals.css";
+.h-box {
+    border-radius: 15px;
+    background-color: var(--tertiary);
+    padding: 1rem;
+    width: 18rem;
+}
+
+.h-boxtitletext {
+    /* border-bottom: 1.5px solid var(--secondary); */
+    transition: all 0.2s ease-in-out;
+}
+
+.h-boxtitlehover {
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    background-color: var(--accent);
+    height: 2px;
+    width: 0px;
+    position: absolute;
+}
+
+.h-box:hover .h-boxtitlehover {
+    width: 100%;
+}
+
+.h-boxtitlenohover {
+    transition: all 0.2s ease-in-out;
+    background-color: var(--secondary);
+    height: 2px;
+    width: 100%;
+    position: absolute;
+}
+
+.h-boxsubtopictext {
+    transition: all 0.2s ease-in-out;
+    color: var(--secondary);
+}
+
+.h-boxsubtopic:hover .h-boxsubtopictext {
+    color: var(--secondary-alt);
+}
+
+.h-box:hover .h-boxtitletext {
+    color: var(--accent);
+}
