@@ -6,23 +6,29 @@
 :root {
   --primary: rgb(var(--primary-rgb));
   --secondary: rgb(var(--secondary-rgb));
+  --secondary-alt: rgb(var(--secondary-alt-rgb));
   --tertiary: rgb(var(--tertiary-rgb));
   --primary-rgb: 34, 34, 34;
   --secondary-rgb: 255, 255, 255;
+  --secondary-alt-rgb: 210, 210, 210;
   --tertiary-rgb: 50, 50, 50;
 
   --primary-dark: rgb(var(--primary-dark-rgb));
   --secondary-dark: rgb(var(--secondary-dark-rgb));
+  --secondary-alt-dark: rgb(var(--secondary-alt-dark-rgb));
   --tertiary-dark: rgb(var(--tertiary-dark-rgb));
   --primary-dark-rgb: 34, 34, 34;
   --secondary-dark-rgb: 255, 255, 255;
+  --secondary-alt-dark-rgb: 205, 205, 205;
   --tertiary-dark-rgb: 50, 50, 50;
 
   --primary-light: rgb(var(--primary-light-rgb));
   --secondary-light: rgb(var(--secondary-light-rgb));
+  --secondary-alt-light: rgb(var(--secondary-alt-light-rgb));
   --tertiary-light: rgb(var(--tertiary-light-rgb));
   --primary-light-rgb: 255, 255, 255;
   --secondary-light-rgb: 0, 0, 0;
+  --secondary-alt-light-rgb: 50, 50, 50;
   --tertiary-light-rgb: 86, 86, 86;
 
   --accent: rgb(var(--accent-rgb));

@@ -9,103 +9,125 @@
                 "subtopics": [
                     {
                         "topic": "Boolean",
-                        "href": "/dataStructures/boolean"
+                        "href": "/dataStructures/boolean",
+                        "subtopics": []
                     },
                     {
                         "topic": "Character",
-                        "href": "/dataStructures/character"
+                        "href": "/dataStructures/character",
+                        "subtopics": []
                     },
                     {
                         "topic": "Symbol",
-                        "href": "/dataStructures/symbol"
+                        "href": "/dataStructures/symbol",
+                        "subtopics": []
                     },
                     {
                         "topic": "Integer",
-                        "href": "/dataStructures/integer"
+                        "href": "/dataStructures/integer",
+                        "subtopics": []
                     },
                     {
                         "topic": "Floating Point",
-                        "href": "/dataStructures/float"
+                        "href": "/dataStructures/float",
+                        "subtopics": []
                     },
                     {
                         "topic": "Fixed Point",
-                        "href": "/dataStructures/fixed"
+                        "href": "/dataStructures/fixed",
+                        "subtopics": []
                     },
                     {
                         "topic": "Enum",
-                        "href": "/dataStructures/enum"
+                        "href": "/dataStructures/enum",
+                        "subtopics": []
                     },
                     {
                         "topic": "Pointer",
-                        "href": "/dataStructures/pointer"
+                        "href": "/dataStructures/pointer",
+                        "subtopics": []
                     },
                     {
                         "topic": "Null",
-                        "href": "/dataStructures/null"
+                        "href": "/dataStructures/null",
+                        "subtopics": []
                     }
                 ]
             },
             {
-                "topic": "Composite",
+                "topic": "Composite Types",
                 "href": "/dataStructures/composite",
                 "subtopics": [
                     {
                         "topic": "Array",
-                        "href": "/dataStructures/array"
+                        "href": "/dataStructures/array",
+                        "subtopics": []
                     },
                     {
                         "topic": "Struct",
-                        "href": "/dataStructures/struct"
+                        "href": "/dataStructures/struct",
+                        "subtopics": []
                     },
                     {
                         "topic": "String",
-                        "href": "/dataStructures/string"
+                        "href": "/dataStructures/string",
+                        "subtopics": []
                     },
                     {
                         "topic": "Union",
-                        "href": "/dataStructures/union"
+                        "href": "/dataStructures/union",
+                        "subtopics": []
                     }
                 ]
             },
             {
-                "topic": "Abstract",
+                "topic": "Abstract Types",
                 "href": "/dataStructures/abstract",
                 "subtopics": [
                     {
                         "topic": "Container",
-                        "href": "/dataStructures/container"
+                        "href": "/dataStructures/container",
+                        "subtopics": []
                     },
                     {
                         "topic": "List",
-                        "href": "/dataStructures/list"
+                        "href": "/dataStructures/list",
+                        "subtopics": []
                     },
                     {
                         "topic": "Tuple",
-                        "href": "/dataStructures/tuple"
+                        "href": "/dataStructures/tuple",
+                        "subtopics": []
                     },
                     {
                         "topic": "Map",
-                        "href": "/dataStructures/map"
+                        "href": "/dataStructures/map",
+                        "subtopics": []
                     },
                     {
                         "topic ": "Set",
-                        "href": "/dataStructures/set"
+                        "href": "/dataStructures/set",
+                        "subtopics": []
                     },
                     {
                         "topic": "Stack",
-                        "href": "/dataStructures/stack"
+                        "href": "/dataStructures/stack",
+                        "subtopics": []
                     },
                     {
                         "topic": "Queue",
-                        "href": "/dataStructures/queue"
+                        "href": "/dataStructures/queue",
+                        "subtopics": []
                     },
                     {
                         "topic": "Graph",
-                        "href": "/dataStructures/graph"
+                        "href": "/dataStructures/graph",
+                        "subtopics": []
                     },
                     {
                         "topic": "Tree",
-                        "href": "/dataStructures/tree"
+                        "href": "/dataStructures/tree",
+                        "subtopics": []
                     }
                 ]
             },
@@ -119,23 +141,28 @@
                         "subtopics": [
                             {
                                 "topic": "Array",
-                                "href": "/dataStructures/array"
+                                "href": "/dataStructures/array",
+                                "subtopics": []
                             },
                             {
                                 "topic": "Sorted Array",
-                                "href": "/dataStructures/sortedArray"
+                                "href": "/dataStructures/sortedArray",
+                                "subtopics": []
                             },
                             {
                                 "topic": "Bit Array",
-                                "href": "/dataStructures/bitArray"
+                                "href": "/dataStructures/bitArray",
+                                "subtopics": []
                             },
                             {
                                 "topic": "Lookup Table",
-                                "href": "/dataStructures/lookupTable"
+                                "href": "/dataStructures/lookupTable",
+                                "subtopics": []
                             },
                             {
                                 "topic": "Matrix",
-                                "href": "/dataStructures/matrix"
+                                "href": "/dataStructures/matrix",
+                                "subtopics": []
                             }
                         ]
                     },
@@ -145,19 +172,23 @@
                         "subtopics": [
                             {
                                 "topic": "Linked List",
-                                "href": "/dataStructures/linkedList"
+                                "href": "/dataStructures/linkedList",
+                                "subtopics": []
                             },
                             {
                                 "topic": "Doubly Linked List",
-                                "href": "/dataStructures/doublyLinkedList"
+                                "href": "/dataStructures/doublyLinkedList",
+                                "subtopics": []
                             },
                             {
                                 "topic": "Array List",
-                                "href": "/dataStructures/arrayList"
+                                "href": "/dataStructures/arrayList",
+                                "subtopics": []
                             },
                             {
                                 "topic": "Skip List",
-                                "href": "/dataStructures/skipList"
+                                "href": "/dataStructures/skipList",
+                                "subtopics": []
                             }
                         ]
                     },
@@ -167,11 +198,13 @@
                         "subtopics": [
                             {
                                 "topic": "Queue",
-                                "href": "/dataStructures/queue"
+                                "href": "/dataStructures/queue",
+                                "subtopics": []
                             },
                             {
                                 "topic": "Priority Queue",
-                                "href": "/dataStructures/priorityQueue"
+                                "href": "/dataStructures/priorityQueue",
+                                "subtopics": []
                             }
                         ]
                     },
@@ -181,11 +214,13 @@
                         "subtopics": [
                             {
                                 "topic": "Stack",
-                                "href": "/dataStructures/stack"
+                                "href": "/dataStructures/stack",
+                                "subtopics": []
                             },
                             {
                                 "topic": "Deque",
-                                "href": "/dataStructures/deque"
+                                "href": "/dataStructures/deque",
+                                "subtopics": []
                             }
                         ]
                     }
@@ -201,15 +236,18 @@
                         "subtopics": [
                             {
                                 "topic": "Binary Tree",
-                                "href": "/dataStructures/binaryTree"
+                                "href": "/dataStructures/binaryTree",
+                                "subtopics": []
                             },
                             {
                                 "topic": "Binary Search Tree",
-                                "href": "/dataStructures/binarySearchTree"
+                                "href": "/dataStructures/binarySearchTree",
+                                "subtopics": []
                             },
                             {
                                 "topic": "Red-black Tree",
-                                "href": "/dataStructures/redBlackTree"
+                                "href": "/dataStructures/redBlackTree",
+                                "subtopics": []
                             }
                         ]
                     },
@@ -219,15 +257,18 @@
                         "subtopics": [
                             {
                                 "topic": "B-tree",
-                                "href": "/dataStructures/bTree"
+                                "href": "/dataStructures/bTree",
+                                "subtopics": []
                             },
                             {
                                 "topic": "B+ Tree",
-                                "href": "/dataStructures/bPlusTree"
+                                "href": "/dataStructures/bPlusTree",
+                                "subtopics": []
                             },
                             {
                                 "topic": "B* Tree",
-                                "href": "/dataStructures/bStarTree"
+                                "href": "/dataStructures/bStarTree",
+                                "subtopics": []
                             }
                         ]
                     },
@@ -237,31 +278,38 @@
                         "subtopics": [
                             {
                                 "topic": "Heap",
-                                "href": "/dataStructures/heap"
+                                "href": "/dataStructures/heap",
+                                "subtopics": []
                             },
                             {
                                 "topic": "Binary Heap",
-                                "href": "/dataStructures/binaryHeap"
+                                "href": "/dataStructures/binaryHeap",
+                                "subtopics": []
                             },
                             {
                                 "topic": "Binomial Heap",
-                                "href": "/dataStructures/binomialHeap"
+                                "href": "/dataStructures/binomialHeap",
+                                "subtopics": []
                             },
                             {
                                 "topic": "Fibonacci Heap",
-                                "href": "/dataStructures/fibonacciHeap"
+                                "href": "/dataStructures/fibonacciHeap",
+                                "subtopics": []
                             },
                             {
                                 "topic": "Min Heap",
-                                "href": "/dataStructures/minHeap"
+                                "href": "/dataStructures/minHeap",
+                                "subtopics": []
                             },
                             {
                                 "topic": "Max Heap",
-                                "href": "/dataStructures/maxHeap"
+                                "href": "/dataStructures/maxHeap",
+                                "subtopics": []
                             },
                             {
                                 "topic": "Min-Max Heap",
-                                "href": "/dataStructures/minMaxHeap"
+                                "href": "/dataStructures/minMaxHeap",
+                                "subtopics": []
                             }
                         ]
                     },
@@ -271,11 +319,13 @@
                         "subtopics": [
                             {
                                 "topic": "Radix Tree",
-                                "href": "/dataStructures/radixTree"
+                                "href": "/dataStructures/radixTree",
+                                "subtopics": []
                             },
                             {
                                 "topic": "Trie",
-                                "href": "/dataStructures/trie"
+                                "href": "/dataStructures/trie",
+                                "subtopics": []
                             }
                         ]
                     },
@@ -285,15 +335,18 @@
                         "subtopics": [
                             {
                                 "topic": "Ternary Tree",
-                                "href": "/dataStructures/ternaryTree"
+                                "href": "/dataStructures/ternaryTree",
+                                "subtopics": []
                             },
                             {
                                 "topic": "K-ary Tree",
-                                "href": "/dataStructures/kAryTree"
+                                "href": "/dataStructures/kAryTree",
+                                "subtopics": []
                             },
                             {
                                 "topic": "Spaghetti Stack",
-                                "href": "/dataStructures/spaghettiStack"
+                                "href": "/dataStructures/spaghettiStack",
+                                "subtopics": []
                             }
                         ]
                     },
@@ -303,15 +356,18 @@
                         "subtopics": [
                             {
                                 "topic": "Abstract Syntax Tree",
-                                "href": "/dataStructures/abstractSyntaxTree"
+                                "href": "/dataStructures/abstractSyntaxTree",
+                                "subtopics": []
                             },
                             {
                                 "topic": "Parse Tree",
-                                "href": "/dataStructures/parseTree"
+                                "href": "/dataStructures/parseTree",
+                                "subtopics": []
                             },
                             {
                                 "topic": "Decision Tree",
-                                "href": "/dataStructures/decisionTree"
+                                "href": "/dataStructures/decisionTree",
+                                "subtopics": []
                             }
                         ]
                     }
@@ -323,19 +379,23 @@
                 "subtopics": [
                     {
                         "topic": "Hash List",
-                        "href": "/dataStructures/hashList"
+                        "href": "/dataStructures/hashList",
+                        "subtopics": []
                     },
                     {
                         "topic": "Hash Table",
-                        "href": "/dataStructures/hashTable"
+                        "href": "/dataStructures/hashTable",
+                        "subtopics": []
                     },
                     {
                         "topic": "Hash Tree",
-                        "href": "/dataStructures/hashTree"
+                        "href": "/dataStructures/hashTree",
+                        "subtopics": []
                     },
                     {
                         "topic": "Hash Trie",
-                        "href": "/dataStructures/hashTrie"
+                        "href": "/dataStructures/hashTrie",
+                        "subtopics": []
                     }
                 ]
             },
@@ -345,31 +405,38 @@
                 "subtopics": [
                     {
                         "topic": "Graph",
-                        "href": "/dataStructures/graph"
+                        "href": "/dataStructures/graph",
+                        "subtopics": []
                     },
                     {
                         "topic": "Undirected Graph",
-                        "href": "/dataStructures/undirectedGraph"
+                        "href": "/dataStructures/undirectedGraph",
+                        "subtopics": []
                     },
                     {
                         "topic": "Directed Graph",
-                        "href": "/dataStructures/directedGraph"
+                        "href": "/dataStructures/directedGraph",
+                        "subtopics": []
                     },                    
                     {
                         "topic": "Directed Acyclic Graph",
-                        "href": "/dataStructures/directedAcyclicGraph"
+                        "href": "/dataStructures/directedAcyclicGraph",
+                        "subtopics": []
                     },
                     {
                         "topic": "Adjaceny List",
-                        "href": "/dataStructures/adjacencyList"
+                        "href": "/dataStructures/adjacencyList",
+                        "subtopics": []
                     },
                     {
                         "topic": "Adjacency Matrix",
-                        "href": "/dataStructures/adjacencyMatrix"
+                        "href": "/dataStructures/adjacencyMatrix",
+                        "subtopics": []
                     },
                     {
                         "topic": "Decision Tree",
-                        "href": "/dataStructures/decisionTree"
+                        "href": "/dataStructures/decisionTree",
+                        "subtopics": []
                     }
                 ]
             }
@@ -381,7 +448,8 @@
         "subtopics": [
             {
                 "topic": "Sorting",
-                "href": "/algorithms/sorting"
+                "href": "/algorithms/sorting",
+                "subtopics": []
             }
         ]
     }

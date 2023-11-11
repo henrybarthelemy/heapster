@@ -1,5 +1,4 @@
 import "../globals.css"
-
 const Logo = ({fontSize = "text-7xl"}) => {
     return(
         <span className="flex text-center">
