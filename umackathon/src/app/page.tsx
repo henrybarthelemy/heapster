@@ -17,7 +17,8 @@ export default function App() {
     const router = useRouter();
 
     return (
-        <ChakraProvider>
+    
+         <ChakraProvider>
             <NavBar/>
             <Container maxW={"5xl"}>
                 <Stack

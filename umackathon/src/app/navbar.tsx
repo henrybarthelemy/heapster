@@ -145,4 +145,8 @@ const NAV_ITEMS = [
         label: "Search",
         href: "/search",
     },
+    {
+        label: "cyto",
+        href: "cyto",
+    }
 ];
