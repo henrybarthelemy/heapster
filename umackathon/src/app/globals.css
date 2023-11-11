@@ -111,3 +111,12 @@ a:active {
 .h-bg-danger {
   background-color: var(--danger) !important;
 }
+
+
+.buttonBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  gap: 30px;
+}
